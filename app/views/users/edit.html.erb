@@ -1,0 +1,22 @@
+<%= form_with model: @user do |form| %>
+    <%= form.label :username, "Enter username:" %><br>
+    <%= form.text_field :username, placeholder: "sample username" %><br><br>
+    <%= form.label :email, "Enter email:" %><br>
+    <%= form.text_field :email, value: 'contact@host.com' %><br><br>
+    <%= form.label :password, "Enter password:" %><br>
+    <%= form.password_field :password %><br><br>
+    <%= form.submit "Create new user" %>
+<% end %>
+
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
